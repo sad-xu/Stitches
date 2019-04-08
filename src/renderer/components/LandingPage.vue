@@ -1,5 +1,8 @@
 <template>
   <div id="wrapper">
+    <div class="top-bar">
+      <span class="menu-item">@</span>
+    </div>
     <img id="logo" src="~@/assets/logo.png" alt="electron-vue">
     <main>
       <div class="left-side">
@@ -26,13 +29,19 @@
   }
 </script>
 
-<style>
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+<style lang="scss" scoped>
+  /* @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro'); */
+  .top-bar {
+    height: 40px;
+    background-color: #2c3e50;
+    -webkit-app-region: drag;
+    .menu-item {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      -webkit-app-region: no-drag;
+    }
   }
 
   body { font-family: 'Source Sans Pro', sans-serif; }
@@ -44,9 +53,6 @@
         rgba(255, 255, 255, 1) 40%,
         rgba(229, 229, 229, .9) 100%
       );
-    height: 100vh;
-    padding: 60px 80px;
-    width: 100vw;
   }
 
   #logo {

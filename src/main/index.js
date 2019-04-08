@@ -1,13 +1,15 @@
 'use strict'
 
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain, Tray, Menu, nativeImage } from 'electron'
+
+const path = require('path')
 
 /**
  * Set `__static` path to static files in production
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/using-static-assets.html
  */
 if (process.env.NODE_ENV !== 'development') {
-  global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\')
+  global.__static = path.join(__dirname, '/static').replace(/\\/g, '\\\\')
 }
 
 let mainWindow
@@ -15,14 +17,21 @@ const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`
 
+
+
+// 初始化浏览器窗口
 function createWindow () {
-  /**
-   * Initial window options
-   */
+  console.log('createWindow...')
   mainWindow = new BrowserWindow({
-    height: 563,
+    width: 1000,
+    height: 600,
     useContentSize: true,
-    width: 1000
+    icon: path.join(__static, 'icon.png'),
+    resizable: false,         //禁止调整大小
+    fullscreenable: false,    // 禁止全屏
+    frame: false,             // 无边框
+    titleBarStyle: 'hidden',  // mac保留红绿灯
+    backgroundColor: '#2F384B',
   })
 
   mainWindow.loadURL(winURL)
@@ -32,14 +41,23 @@ function createWindow () {
   })
 }
 
-app.on('ready', createWindow)
+/**
+ * 主进程生命周期
+ * 
+ */
+// 初始化触发 
+app.on('ready', () => {
+  createWindow()
+})
 
+// 所有窗口都关闭时触发
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
+// 应用被激活时触发 *mac
 app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()
