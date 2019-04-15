@@ -3,6 +3,7 @@
 import { app, BrowserWindow, ipcMain, Tray, Menu, nativeImage } from 'electron'
 
 const path = require('path')
+const os = require('os')
 
 /**
  * Set `__static` path to static files in production
@@ -47,6 +48,9 @@ function createWindow () {
  */
 // 初始化触发 
 app.on('ready', () => {
+  if (process.env.NODE_ENV === 'development') { // 开发环境下vue-devtools
+    BrowserWindow.addDevToolsExtension('C:/Users/Administrator/AppData/Local/Google/Chrome/User Data/Default/Extensions/nhdogjmejiglipccpnnnanhbledajbpd/5.0.9_0')
+  }
   createWindow()
 })
 
