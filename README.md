@@ -1,6 +1,6 @@
 # Stitches
 
-> Stitches which is composed of some personal projects.
+> Stitches, which is composed of some personal projects.
 
 #### Build Setup
 

@@ -8,6 +8,9 @@
       <div class="left-side">
         <span class="title">
           Hellow Stitches!
+          <router-link to="/home">
+            jump to home...
+          </router-link>
         </span>
         <system-information></system-information>
       </div>

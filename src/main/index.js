@@ -18,20 +18,17 @@ const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`
 
-
-
 // 初始化浏览器窗口
 function createWindow () {
-  console.log('createWindow...')
   mainWindow = new BrowserWindow({
     width: 1000,
     height: 600,
     useContentSize: true,
     icon: path.join(__static, 'icon.png'),
-    resizable: false,         //禁止调整大小
-    fullscreenable: false,    // 禁止全屏
-    frame: false,             // 无边框
-    titleBarStyle: 'hidden',  // mac保留红绿灯
+    // resizable: false,         //禁止调整大小
+    // fullscreenable: false,    // 禁止全屏
+    // frame: false,             // 无边框
+    // titleBarStyle: 'hidden',  // mac保留红绿灯
     backgroundColor: '#2F384B',
   })
 
@@ -49,7 +46,7 @@ function createWindow () {
 // 初始化触发 
 app.on('ready', () => {
   if (process.env.NODE_ENV === 'development') { // 开发环境下vue-devtools
-    BrowserWindow.addDevToolsExtension('C:/Users/Administrator/AppData/Local/Google/Chrome/User Data/Default/Extensions/nhdogjmejiglipccpnnnanhbledajbpd/5.0.9_0')
+    BrowserWindow.addDevToolsExtension('C:/Users/Administrator/AppData/Local/Google/Chrome/User Data/Default/Extensions/nhdogjmejiglipccpnnnanhbledajbpd/5.1.0_0')
   }
   createWindow()
 })
