@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { initCube } from './pixmapEditor.js'
+import { initPixmapEditor } from './pixmapEditor.js'
 
 export default {
   name: 'Pixmap',
@@ -17,7 +17,7 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
-      initCube()
+      initPixmapEditor()
     })
   },
   methods: {
@@ -27,9 +27,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  canvas {
-    width: 300px;
-    height: 300px;
+  #pixmap-container {
+    width: 600px;
+    height: 500px;
   }
 </style>
 
