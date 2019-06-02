@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import '@/utils/TrackballControls.js'
 
 export function initCube () {
   const container = document.getElementById('pixmap-container')
@@ -36,6 +37,8 @@ let rollOverMesh, rollOverMaterial
 let cubeGeo, cubeMaterial
 let objects = []
 
+let controls
+
 function init() {
   const container = document.getElementById('pixmap-container')
   WIDTH = container.offsetWidth
@@ -52,14 +55,14 @@ function init() {
   // 缓冲立方体 roll-over helpers
   let rollOverGeo = new THREE.BoxBufferGeometry(50, 50, 50)
   // 材质
-  rollOverMaterial = new THREE.MeshBasicMaterial({color: 0xff0000, opacity: 0.5, transparent: true})
+  rollOverMaterial = new THREE.MeshBasicMaterial({color: 0xf16, opacity: 0.3, transparent: true})
   // 立方体虚影
   rollOverMesh = new THREE.Mesh(rollOverGeo, rollOverMaterial)
   // 添加到当前场景的子级
   scene.add(rollOverMesh)
   // cubes
   cubeGeo = new THREE.BoxBufferGeometry(50, 50, 50)
-  cubeMaterial = new THREE.MeshBasicMaterial({color: 0xfeb74c})
+  cubeMaterial = new THREE.MeshPhongMaterial({color: 0xfeb74c})
   // 坐标格辅助 grid
   let gridHelper = new THREE.GridHelper(1000, 20)
   scene.add(gridHelper)
@@ -91,6 +94,15 @@ function init() {
   document.addEventListener('keyup', onDocumentKeyUp, false)
   //
   window.addEventListener('resize', onWindowResize, false)
+  //
+  controls = new THREE.TrackballControls(camera, renderer.domElement)
+  controls.rotateSpeed = 1.0
+  controls.zoomSpeed = 1.2
+  controls.panSpeed = 0.8
+  controls.noZoom = false
+  controls.noPan = false
+  controls.staticMoving = true
+  controls.dynamicDampingFactor = 0.3
 }
 
 function onWindowResize() {
@@ -156,6 +168,7 @@ function onDocumentKeyUp(event) {
 }
 
 function render() {
+  controls.update()
   renderer.render(scene, camera)
 }
 
