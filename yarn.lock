@@ -7859,9 +7859,9 @@ path-key@^2.0.0, path-key@^2.0.1:
   integrity sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "http://registry.npm.taobao.org/path-parse/download/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha1-1i27VnlAXXLEc37FhgDp3c8G0kw=
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-proxy@~1.0.0:
   version "1.0.0"
@@ -9968,6 +9968,11 @@ text-table@^0.2.0, text-table@~0.2.0:
   version "0.2.0"
   resolved "http://registry.npm.taobao.org/text-table/download/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
   integrity sha1-f17oI66AUgfACvLfSoTsP8+lcLQ=
+
+three@^0.104.0:
+  version "0.104.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.104.0.tgz#9ad1da492153b753a89e0df066631215bd9d9087"
+  integrity sha512-q617IMBC5k40U2E9UC4/LtmhzTOOLB1jGMIooUL+QrhZ7abiGCSDrKrpCDt9V8RTl6xw+0FYfA1PYsIPKbQOgg==
 
 throttleit@0.0.2:
   version "0.0.2"
